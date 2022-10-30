@@ -32,6 +32,10 @@ def start_game():
                 number_guesses += 1
             else:
                 print('Well done you guessed the right number!!!')
+                players_score[name] = number_guesses
+
+
+
 
 
 
