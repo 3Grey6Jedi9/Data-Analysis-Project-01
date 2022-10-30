@@ -68,10 +68,6 @@ def start_game():
 
 
 
-
-
-
-
 def data(number_guesses, players_score):
     results = []
     for value in players_score.values():
@@ -85,6 +81,9 @@ def data(number_guesses, players_score):
 
 
 
+
+
+# RANKING FUNCTION
 
 def ranking(players_score):
     i = 1
@@ -127,6 +126,10 @@ def ranking(players_score):
             medal = 'Not good enough for a medal'
         print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
         i += 1
+
+# END OF THE RANKING FUNCTION
+
+
 
 
 
