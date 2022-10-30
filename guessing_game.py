@@ -14,7 +14,7 @@ def start_game():
     name = input('Would you be so kind of telling me your name please? ')
     players_name.append(name)
     print(f'Alright {name}!! I hope you are ready... Let is beging!')
-    while ValueError:
+    while ValueError or magic_number != guess:
         try:
             guess = int(input('Please enter an integer between 1 and 100: '))
             if guess not in range(1,101):
@@ -23,7 +23,18 @@ def start_game():
         except ValueError:
             print('Please you must enter and integer between 1 and 100')
         else:
-            break
+            if magic_number > guess:
+                print('Try another number, higher this time')
+                number_guesses += 1
+
+            elif magic_number < guess:
+                print('Try another number, lower this time')
+                number_guesses += 1
+            else:
+                print('Well done you guessed the right number!!!')
+
+
+
 
 
 
