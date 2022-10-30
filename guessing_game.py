@@ -90,13 +90,13 @@ def ranking(players_score):
     i = 1
     print('''\t\t\tThese are the TOP 3 PLAYERS\n''')
     sorted(players_score)
-    if i == 1:
-        medal = 'GOLD'
-    elif i == 2:
-        medal = 'SILVER'
-    elif i == 3:
-        medal = 'BRONZE'
     for players, score in players_score.items():
+        if i == 1:
+            medal = 'GOLD'
+        elif i == 2:
+            medal = 'SILVER'
+        elif i == 3:
+            medal = 'BRONZE'
         print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
         i += 1
 
