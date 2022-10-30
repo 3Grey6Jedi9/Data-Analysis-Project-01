@@ -80,7 +80,7 @@ def data(number_guesses, players_score):
      \rNumber of attempts: {number_guesses}
      \rMean: {statistics.mean(results)}
      \rMedian: {statistics.median(results)}
-     \rMode: {statistics.mode(results)}''')
+     \rMode: {statistics.multimode(results)}''')
 
 
 
@@ -89,8 +89,21 @@ def data(number_guesses, players_score):
 def ranking(players_score):
     i = 1
     print('''\t\t\tThese are the TOP 3 PLAYERS\n''')
-    sorted(players_score)
-    for players, score in players_score.items():
+    top_players = {}
+    while len(top_players) < len(players_score):
+        for key, value in players_score.items():
+            for k, v in players_score.items():
+                if value <= v:
+                    continue
+                else:
+                    break
+            for kt, vt in top_players.items():
+                if value >= vt:
+                    continue
+                else:
+                    break
+            top_players[key] = value
+    for players, score in top_players.items():
         if i == 1:
             medal = 'GOLD'
         elif i == 2:
@@ -99,6 +112,8 @@ def ranking(players_score):
             medal = 'BRONZE'
         print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
         i += 1
+        if i > 3:
+            break
 
 
 
