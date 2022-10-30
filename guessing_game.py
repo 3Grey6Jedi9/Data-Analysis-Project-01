@@ -13,9 +13,9 @@ players_score = {}
 def start_game():
     print('''\n\t*** WELCOME LADIES AND GENTLEMEN TO THE GUESSING NUMBER GAME ***\n''')
     ranking(players_score)
-    number_guesses = 0
     again = 'y'
     while again == 'y':
+        number_guesses = 0
         magic_number = random.randrange(1, 101)
         name = input('Would you be so kind of telling me your name please? ')
         players_name.append(name)
@@ -47,7 +47,7 @@ def start_game():
                     ranking(players_score)
                     while ValueError:
                         try:
-                            again = input('\nWould you like to play again[y/n]? ')
+                            again = input('\nWould you like to play again[y/n]? ').lower()
                             if again != 'y' and again != 'n':
                                 raise ValueError("Please enter 'y' for 'yes' or 'n' for 'no' ")
                         except ValueError as err:
@@ -87,18 +87,17 @@ def data(number_guesses, players_score):
 
 
 def ranking(players_score):
-    i = 0
+    i = 1
     print('''\t\t\tThese are the TOP 3 PLAYERS\n''')
     sorted(players_score)
-    while i < 3:
-        if i == 0:
-            medal = 'GOLD'
-        elif i == 1:
-            medal = 'SILVER'
-        elif i == 2:
-            medal = 'BRONZE'
-        for players, score in players_score.items():
-            print(f'{i+1}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
+    if i == 1:
+        medal = 'GOLD'
+    elif i == 2:
+        medal = 'SILVER'
+    elif i == 3:
+        medal = 'BRONZE'
+    for players, score in players_score.items():
+        print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
         i += 1
 
 
