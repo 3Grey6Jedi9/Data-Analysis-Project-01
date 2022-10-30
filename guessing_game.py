@@ -90,19 +90,32 @@ def ranking(players_score):
     i = 1
     print('''\t\t\tThese are the TOP 3 PLAYERS\n''')
     top_players = {}
-    while len(top_players) < len(players_score):
-        for key, value in players_score.items():
-            for k, v in players_score.items():
-                if value <= v:
-                    continue
-                else:
-                    break
-            for kt, vt in top_players.items():
-                if value >= vt:
-                    continue
-                else:
-                    break
-            top_players[key] = value
+    L = []
+    K = []
+    for values in players_score.values():
+        L.append(values)
+    for keys in players_score.keys():
+        K.append(keys)
+    SL = sorted(L)
+    I = {}
+    j = 1
+
+    for x in SL:
+        for y in L:
+            if x == y:
+                I[j] = K[L.index(y)]
+                j += 1
+            else:
+                continue
+
+    for value in I.values():
+        top_players[value] = 0
+
+    a = 0
+    for key in top_players.keys():
+        top_players[key] = SL[a]
+        a += 1
+
     for players, score in top_players.items():
         if i == 1:
             medal = 'GOLD'
@@ -110,10 +123,10 @@ def ranking(players_score):
             medal = 'SILVER'
         elif i == 3:
             medal = 'BRONZE'
+        else:
+            medal = 'Not good enough for a medal'
         print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
         i += 1
-        if i > 3:
-            break
 
 
 
