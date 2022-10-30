@@ -23,7 +23,7 @@ def start_game():
         except ValueError:
             print('Please you must enter and integer between 1 and 100')
         else:
-            if 
+            break
 
 
 
