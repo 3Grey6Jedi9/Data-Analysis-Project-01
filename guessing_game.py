@@ -25,7 +25,7 @@ def start_game():
                 guess = int(input('Please enter an integer between 1 and 100: '))
                 if guess not in range(1,101):
                     print('Please you must enter and integer between 1 and 100')
-                    guess = int(input('Try again please: '))
+                    continue
             except ValueError:
                 print('Please you must enter and integer between 1 and 100')
             else:
