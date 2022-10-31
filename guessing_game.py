@@ -40,6 +40,7 @@ def start_game():
                     continue
 
                 else:
+                    number_guesses += 1
                     print('Well done you guessed the right number!!!')
                     players_score[name] = number_guesses
                     data(number_guesses, players_score)
@@ -58,7 +59,8 @@ def start_game():
                                 break
                             else:
                                 break
-            break
+                break
+
 
 
 
