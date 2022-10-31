@@ -85,7 +85,7 @@ def data(number_guesses, players_score):
 
 
 
-# RANKING FUNCTION
+# RANKING FUNCTION (equals scores brings me trouble
 
 def ranking(players_score):
     i = 1
@@ -98,15 +98,20 @@ def ranking(players_score):
     for keys in players_score.keys():
         K.append(keys)
     SL = sorted(L)
+    SLT = list(set(SL))
     I = {}
     j = 1
 
-    for x in SL:
+    for x in SLT:
+        b = 0
         for y in L:
             if x == y:
-                I[j] = K[L.index(y)]
+                I[j] = K[b]
                 j += 1
+                b += 1
+                continue
             else:
+                b += 1
                 continue
 
     for value in I.values():
@@ -119,14 +124,14 @@ def ranking(players_score):
 
     for players, score in top_players.items():
         if i == 1:
-            medal = 'GOLD'
+            medal = 'MEDAL OF GOLD'
         elif i == 2:
-            medal = 'SILVER'
+            medal = 'MEDAL OF SILVER'
         elif i == 3:
-            medal = 'BRONZE'
+            medal = 'MEDAL OF BRONZE'
         else:
             medal = 'Not good enough for a medal'
-        print(f'{i}. {players} **\033[1m{score}\033[0m** --> MEDAL OF {medal}')
+        print(f'{i}. {players} **\033[1m{score}\033[0m** --> {medal}')
         i += 1
 
 # END OF THE RANKING FUNCTION
