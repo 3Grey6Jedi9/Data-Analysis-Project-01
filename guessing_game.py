@@ -11,6 +11,7 @@ players_score = {}
 
 
 def start_game():
+    '''This is the main function that runs the game'''
     print('''\n\t*** WELCOME LADIES AND GENTLEMEN TO THE GUESSING NUMBER GAME ***\n''')
     ranking(players_score)
     again = 'y'
@@ -71,6 +72,7 @@ def start_game():
 
 
 def data(number_guesses, players_score):
+    '''This function manages the statistical data'''
     results = []
     for value in players_score.values():
         results.append(value)
@@ -85,9 +87,10 @@ def data(number_guesses, players_score):
 
 
 
-# RANKING FUNCTION (equals scores brings me trouble
+# RANKING FUNCTION
 
 def ranking(players_score):
+    '''This function was created for managing the ranking'''
     i = 1
     print('''\t\t\tThese are the TOP 3 PLAYERS\n''')
     top_players = {}
