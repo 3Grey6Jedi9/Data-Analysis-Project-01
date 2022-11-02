@@ -101,7 +101,7 @@ def ranking(players_score):
     for keys in players_score.keys():
         K.append(keys)
     SL = sorted(L)
-    SLT = list(set(SL))
+    SLT = sorted(list(set(SL)))
     I = {}
     j = 1
 
@@ -137,7 +137,7 @@ def ranking(players_score):
         print(f'{i}. {players} **\033[1m{score}\033[0m** --> {medal}')
         i += 1
 
-# END OF THE RANKING FUNCTION
+# END OF THE RANKING FUNCTION the names are not well sorted
 
 
 
